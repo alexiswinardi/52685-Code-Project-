@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>My ToDo</title>
+    <!--<link rel="stylesheet" href="mystyle.css">-->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <header>
+        <h1>foodle!</h1>
+        <hr>
+        <h2>Stuck on where to eat?</h2>
+        <h3>Follow the steps to get some food recommendations around Sydney CBD, just to your taste!</h3><p></p>
+        <form id="location-form">
+            <p><div>1. Where would you like to eat? Please enter a suburb or postcode.</div></p>
+            <table>
+                <tr>
+                    <td>
+                        <input type="text" name="location-input" id="location-input" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p><input type="submit" id="location-submit" value="Next" /></p>
+                    </td>
+                </tr>             
+            </table>
+        </form>
+        </header>
+    
+        <script src="index.js"></script>
+
+</head>
+<body>
+    <header>
+        <hr>
+        <p></p>
+        <form id="cuisine-form">
+    	<div class="container">
+            <div>2. Please select up to three cuisines.</div><br>
+		<div class="btn-group col-xs-12">
+                            <div class="select">
+                                <input type="checkbox" id="Japanese">
+                                <label class="btn btn-warning button_select" for="Japanese">Japanese</label>
+			    </div>
+			<div class="select">
+          			<input type="checkbox" id="item_1">
+          			<label class="btn btn-warning button_select" for="item_1">Select 1</label>
+      			</div>
+		</div>
+        </div>
+	</form>
+        
+        <body>
+            <header>
+                <hr>
+                <p></p>
+                <form id="meal-form">
+                    <div>3. What meal would you like to eat?</div><br>
+                    <div class="btn-group col-xs-12">
+                        <label class="option">
+                        <input type="radio" name="optradio"><span class="btn btn-warning btn-option">Brunch</span>
+                        </label>
+                        <label class="option">
+                        <input type="radio" name="optradio"><span class="btn btn-warning btn-option">Lunch</span>
+                        </label>
+                        <label class="option">
+                        <input type="radio" name="optradio"><span class="btn btn-warning btn-option">Dinner</span>
+                        </label>
+                        <input type="radio" name="optradio"><span class="btn btn-warning btn-option">Dessert</span>
+                        </label>
+                    </div>
+                      <p><input type="submit" id="meal-submit" value="Next" /></p>
+                </div>
+        <p></p>
+        </header>
+        <form id="price-form">
+                <div>4. What's the price range for today?</div><br>                <input type="checkbox" id="$" name="$" value="$">
+                <label for="$">$10-$30</label><br>
+                <input type="checkbox" id="$$" name="$$" value="$$">
+                <label for="$$">$30-100</label><br>
+                <input type="checkbox" id="$$$" name="$$$" value="$$$">
+                <label for="$$$">$100+</label><p>
+                <input type="submit" id="price-submit" value="Finish" />
+              </form>
+
+
+/how to only let users select 3 cuisines, 1 meal, 1 price 
