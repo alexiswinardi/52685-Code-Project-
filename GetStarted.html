@@ -29,17 +29,16 @@
         </div>
     </form>
     <div>
-        <div class="container">
+        <div class="center" id="divNextButton">
             <button id="btn_submitlocation" class="flat_button" onclick="btn_submitLocation_OnClick()">Next</button>
         </div>
     </div>
-    <hr>
-    <br />
-    <br />
-    <br />
+    <br>
+    <br>
+    <br>
     <div id="sectionCuisine" style="display: none;">
         <div class="prompt">2. Please select up to two cuisines of your choice</div>
-        <form id="cuisine_form">
+        <form id="cuisine_form" onsubmit="btn_submitCuisine_OnClick(event)">
             <br>
             <br>
             <br>
@@ -131,9 +130,64 @@
                     </tr>
                 </table>
             </div>
+            <br><br><br><br>
+            <div class="prompt">3. What meal would you like to eat?</div>
+            <div class="center">
+                <table>
+                    <tr>
+                        <td>
+                            <div class="cuisine">
+                                <label>
+                                    <input type="radio" name="radioMealType" value="Brunch"><span>Brunch</span>
+                                </label>
+                            </div>
+                            <div class="cuisine">
+                                <label>
+                                    <input type="radio" name="radioMealType" value="Lunch"><span>Lunch</span>
+                                </label>
+                            </div>
+                            <div class="cuisine">
+                                <label>
+                                    <input type="radio" name="radioMealType" value="Dinner"><span>Dinner</span>
+                                </label>
+                            </div>
+                            <div class="cuisine">
+                                <label>
+                                    <input type="radio" name="radioMealType" value="Dessert"><span>Dessert</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <br>
+            <div class="prompt">4. What's the price range for today?</div>
+            <div class="center">
+                <table>
+                    <tr>
+                        <td>
+                            <div class="cuisine">
+                                <label>
+                                    <input type="radio" name="radioPrice" value="$"><span>$</span>
+                                </label>
+                            </div>
+                            <div class="cuisine">
+                                <label>
+                                    <input type="radio" name="radioPrice" value="$$"><span>$$</span>
+                                </label>
+                            </div>
+                            <div class="cuisine">
+                                <label>
+                                    <input type="radio" name="radioPrice" value="$$$"><span>$$$</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
             <div>
                 <div class="container">
-                    <button id="btn_submitcuisine" class="flat_button" onclick="btn_submitCuisine_OnClick()">Next</button>
+                    <input type="submit" id="btn_submitcuisine" class="flat_button" value="Submit">
                 </div>
             </div>
         </form>

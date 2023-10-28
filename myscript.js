@@ -29,12 +29,14 @@ function btn_submitLocation_OnClick() {
     x.focus();
 
     //Hide the next button
-    x = document.getElementById("btn_submitlocation");
+    x = document.getElementById("divNextButton");
     x.style.display = "none";
 }
 
-function btn_submitCuisine_OnClick() {
+function btn_submitCuisine_OnClick(event) {
     
+    _selectedCuisine = [];
+
     var cuisineElements = document.getElementById("cuisine_form").elements;
 
     if( cuisineElements != null )
@@ -53,6 +55,10 @@ function btn_submitCuisine_OnClick() {
         if( validateCuisineSelection() )
         {
             // Do next step
+        }
+        else
+        {
+            event.preventDefault();
         }
     }
 

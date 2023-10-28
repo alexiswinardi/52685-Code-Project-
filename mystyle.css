@@ -85,7 +85,7 @@ div label input {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 200px;
+    height: 180px;
 }
 
 .flat_button:hover {
