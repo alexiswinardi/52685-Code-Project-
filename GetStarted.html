@@ -29,7 +29,7 @@
         </div>
     </form>
     <div>
-        <div class="center">
+        <div class="container">
             <button id="btn_submitlocation" class="flat_button" onclick="btn_submitLocation_OnClick()">Next</button>
         </div>
     </div>
@@ -40,107 +40,102 @@
     <div id="sectionCuisine" style="display: none;">
         <div class="prompt">2. Please select up to two cuisines of your choice</div>
         <form id="cuisine_form">
-            <div class="container">
-                <div class="cuisine">
-                    <label>
-                        <input type="checkbox" name="chkCuisine" value="Japanese"><span>Japanese</span>
-                    </label>
+            <br>
+            <br>
+            <br>
+            <div class="center">
+                <table>
+                    <tr>
+                        <td>
+                            <div class="cuisine">
+                                <label>
+                                    <input type="checkbox" name="chkCuisine" value="Japanese"><span>Japanese</span>
+                                </label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="cuisine">
+                                <label>
+                                    <input type="checkbox" name="chkCuisine" value="Italian"><span>Italian</span>
+                                </label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="cuisine">
+                                <label>
+                                    <input type="checkbox" name="chkCuisine" value="Thai"><span>Thai</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="cuisine">
+                                <label>
+                                    <input type="checkbox" name="chkCuisine" value="Korean"><span>Korean</span>
+                                </label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="cuisine">
+                                <label>
+                                    <input type="checkbox" name="chkCuisine" value="Vietnamese"><span>Vietnamese</span>
+                                </label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="cuisine">
+                                <label>
+                                    <input type="checkbox" name="chkCuisine" value="Indonesian"><span>Indonesian</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="cuisine">
+                                <label>
+                                    <input type="checkbox" name="chkCuisine" value="Chinese"><span>Chinese</span>
+                                </label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="cuisine">
+                                <label>
+                                    <input type="checkbox" name="chkCuisine" value="Malaysian"><span>Malaysian</span>
+                                </label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="cuisine">
+                                <label>
+                                    <input type="checkbox" name="chkCuisine" value="Australian"><span>Australian</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <div class="container">
+                    <button id="btn_submitcuisine" class="flat_button" onclick="btn_submitCuisine_OnClick()">Next</button>
                 </div>
-                <div class="cuisine">
-                    <label>
-                        <input type="checkbox" name="chkCuisine" value="Italian"><span>Italian</span>
-                    </label>
-                </div>
-                <div class="cuisine">
-                    <label>
-                        <input type="checkbox" name="chkCuisine" value="Thai"><span>Thai</span>
-                    </label>
-                </div>
-                <div class="cuisine">
-                    <label>
-                        <input type="checkbox" name="chkCuisine" value="Korean"><span>Korean</span>
-                    </label>
-                </div>
-                <div class="cuisine">
-                    <label>
-                        <input type="checkbox" name="chkCuisine" value="Vietnamese"><span>Vietnamese</span>
-                    </label>
-                </div>
-                <div class="cuisine">
-                    <label>
-                        <input type="checkbox" name="chkCuisine" value="Indonesian"><span>Indonesian</span>
-                    </label>
-                </div>
             </div>
-            <!--<div class="container">
-            <div class="cuisine">
-                <label>
-                    <input type="checkbox" name="chkCuisine" value="Korean"><span>Korean</span>
-                </label>
-            </div>
-            <div class="cuisine">
-                <label>
-                    <input type="checkbox" name="chkCuisine" value="Vietnamese"><span>Vietnamese</span>
-                </label>
-            </div>
-            <div class="cuisine">
-                <label>
-                    <input type="checkbox" name="chkCuisine" value="Indonesian"><span>Indonesian</span>
-                </label>
-            </div>
-        </div>
-        <div class="center">
-            <div class="cuisine">
-                <label>
-                    <input type="checkbox" name="chkCuisine" value="French"><span>French</span>
-                </label>
-            </div>
-            <div class="cuisine">
-                <label>
-                    <input type="checkbox" name="chkCuisine" value="Malaysian"><span>Malaysian</span>
-                </label>
-            </div>
-            <div class="cuisine">
-                <label>
-                    <input type="checkbox" name="chkCuisine" value="1"><span>1</span>
-                </label>
-            </div>
-        </div>
-        <div class="center">
-            <div class="cuisine">
-                <label>
-                    <input type="checkbox" name="chkCuisine" value="2"><span>2</span>
-                </label>
-            </div>
-            <div class="cuisine">
-                <label>
-                    <input type="checkbox" name="chkCuisine" value="3"><span>3</span>
-                </label>
-            </div>
-            <div class="cuisine">
-                <label>
-                    <input type="checkbox" name="chkCuisine" value="4"><span>4</span>
-                </label>
-            </div>
-        </div>
-        <div class="center">
-            <div class="cuisine">
-                <label>
-                    <input type="checkbox" name="chkCuisine" value="5"><span>5</span>
-                </label>
-            </div>
-            <div class="cuisine">
-                <label>
-                    <input type="checkbox" name="chkCuisine" value="6"><span>6</span>
-                </label>
-            </div>
-            <div class="cuisine">
-                <label>
-                    <input type="checkbox" name="chkCuisine" value="7"><span>7</span>
-                </label>
-            </div>
-        </div>
-    </div>-->
         </form>
     </div>
 </body>

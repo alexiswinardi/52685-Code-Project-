@@ -1,3 +1,7 @@
+
+var _locationInput = null;
+var _selectedCuisine = [];
+
 function formLoad() {
 
     //Put stuff here that should happen when the page is loaded
@@ -21,26 +25,63 @@ function btn_submitLocation_OnClick() {
 
     }
 
+    //Set focus
+    x.focus();
+
     //Hide the next button
     x = document.getElementById("btn_submitlocation");
     x.style.display = "none";
 }
 
+function btn_submitCuisine_OnClick() {
+    
+    var cuisineElements = document.getElementById("cuisine_form").elements;
+
+    if( cuisineElements != null )
+    {
+        for( var i = 0; i< cuisineElements.length; i++ )
+        {
+            if( cuisineElements[i].type == "checkbox")
+            {
+                if( cuisineElements[i].checked == true )
+                {
+                    _selectedCuisine.push(cuisineElements[i].value);
+                }
+            }
+        }
+
+        if( validateCuisineSelection() )
+        {
+            // Do next step
+        }
+    }
+
+}
+
 function validateCuisineSelection() {
 
-    var checkboxes = document.getElementsByName("chkCuisine");
-    var numberOfCheckedItems = 0;
+    if( _selectedCuisine.length > 2 )
+    {
+        alert("You can't select more than two cuisines!");
+        return false;
+    }
 
-    for (var i = 0; i < checkboxes.length; i++) {
+    var selected = null;
 
-        if (checkboxes[i].checked)
-            numberOfCheckedItems++;
+    for (var i = 0; i < _selectedCuisine.length; i++) {
+
+        if( selected == null )
+        {
+            selected = _selectedCuisine[i];
+        }
+        else
+        {
+            selected += ", " + _selectedCuisine[i];
+        }
 
     }
 
-    if (numberOfCheckedItems > 3) {
-        alert("You can't select more than three cuisines!");
-        return false;
-    }  
+    alert (selected);
 
+    return true;
 }
