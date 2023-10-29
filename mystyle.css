@@ -98,7 +98,7 @@ div label input {
     margin-right: 100px;
 }
 
-.cuisine {
+.selectbutton {
     margin: 4px;
     border-radius: 10px;
     border: 1px solid #fff;
@@ -107,32 +107,32 @@ div label input {
     font-family: Arial, sans-serif;
 }
 
-.cuisine label {
+.selectbutton label {
     float: left;
     line-height: 3.0em;
     width: 8.0em;
     height: 3.0em;
 }
 
-.cuisine label span {
+.selectbutton label span {
     text-align: center;
     padding: 2px 0;
     display: block;
 }
 
-.cuisine label input {
+.selectbutton label input {
     position: absolute;
     display: none;
     color: #fff !important;
 }
 
 /* selects all of the text within the input element and changes the color of the text */
-.cuisine label input + span {
+.selectbutton label input + span {
     color: #fff;
 }
 
 /* This will declare how a selected input will look giving generic properties */
-.cuisine input:checked + span {
+.selectbutton input:checked + span {
     color: #ffffff;
     text-shadow: 0 0 6px rgba(0, 0, 0, 0.8);
     background-color: black;

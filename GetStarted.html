@@ -4,8 +4,7 @@
     <meta charset="UTF-8" />
     <title>foodle!</title>
     <link rel="stylesheet" href="mystyle.css">
-    <script src="myscript.js"></script>
-    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
+    <script src="_scripts\GetStarted.js"></script>
 </head>
 <body class="foodle_body" onload="formLoad()">
     <header>
@@ -25,12 +24,12 @@
     <br />
     <form id="location_form">
         <div class="div_wrapper">
-            <input class="text" type="text" name="location_input" id="location-input" />
+            <input class="text" type="text" name="location_input" id="location_input" />
         </div>
     </form>
     <div>
-        <div class="center" id="divNextButton">
-            <button id="btn_submitlocation" class="flat_button" onclick="btn_submitLocation_OnClick()">Next</button>
+        <div class="container" id="divNextButton">
+            <input type="button" id="btn_submitlocation" class="flat_button" value="Next" onclick="btn_submitLocation_OnClick()">
         </div>
     </div>
     <br>
@@ -38,7 +37,7 @@
     <br>
     <div id="sectionCuisine" style="display: none;">
         <div class="prompt">2. Please select up to two cuisines of your choice</div>
-        <form id="cuisine_form" onsubmit="btn_submitCuisine_OnClick(event)">
+        <form id="cuisine_form" onsubmit="btn_submit_OnClick(event)">
             <br>
             <br>
             <br>
@@ -46,21 +45,21 @@
                 <table>
                     <tr>
                         <td>
-                            <div class="cuisine">
+                            <div class="selectbutton">
                                 <label>
                                     <input type="checkbox" name="chkCuisine" value="Japanese"><span>Japanese</span>
                                 </label>
                             </div>
                         </td>
                         <td>
-                            <div class="cuisine">
+                            <div class="selectbutton">
                                 <label>
                                     <input type="checkbox" name="chkCuisine" value="Italian"><span>Italian</span>
                                 </label>
                             </div>
                         </td>
                         <td>
-                            <div class="cuisine">
+                            <div class="selectbutton">
                                 <label>
                                     <input type="checkbox" name="chkCuisine" value="Thai"><span>Thai</span>
                                 </label>
@@ -74,21 +73,21 @@
                     </tr>
                     <tr>
                         <td>
-                            <div class="cuisine">
+                            <div class="selectbutton">
                                 <label>
                                     <input type="checkbox" name="chkCuisine" value="Korean"><span>Korean</span>
                                 </label>
                             </div>
                         </td>
                         <td>
-                            <div class="cuisine">
+                            <div class="selectbutton">
                                 <label>
                                     <input type="checkbox" name="chkCuisine" value="Vietnamese"><span>Vietnamese</span>
                                 </label>
                             </div>
                         </td>
                         <td>
-                            <div class="cuisine">
+                            <div class="selectbutton">
                                 <label>
                                     <input type="checkbox" name="chkCuisine" value="Indonesian"><span>Indonesian</span>
                                 </label>
@@ -102,21 +101,21 @@
                     </tr>
                     <tr>
                         <td>
-                            <div class="cuisine">
+                            <div class="selectbutton">
                                 <label>
                                     <input type="checkbox" name="chkCuisine" value="Chinese"><span>Chinese</span>
                                 </label>
                             </div>
                         </td>
                         <td>
-                            <div class="cuisine">
+                            <div class="selectbutton">
                                 <label>
                                     <input type="checkbox" name="chkCuisine" value="Malaysian"><span>Malaysian</span>
                                 </label>
                             </div>
                         </td>
                         <td>
-                            <div class="cuisine">
+                            <div class="selectbutton">
                                 <label>
                                     <input type="checkbox" name="chkCuisine" value="Australian"><span>Australian</span>
                                 </label>
@@ -136,22 +135,22 @@
                 <table>
                     <tr>
                         <td>
-                            <div class="cuisine">
+                            <div class="selectbutton">
                                 <label>
                                     <input type="radio" name="radioMealType" value="Brunch"><span>Brunch</span>
                                 </label>
                             </div>
-                            <div class="cuisine">
+                            <div class="selectbutton">
                                 <label>
                                     <input type="radio" name="radioMealType" value="Lunch"><span>Lunch</span>
                                 </label>
                             </div>
-                            <div class="cuisine">
+                            <div class="selectbutton">
                                 <label>
                                     <input type="radio" name="radioMealType" value="Dinner"><span>Dinner</span>
                                 </label>
                             </div>
-                            <div class="cuisine">
+                            <div class="selectbutton">
                                 <label>
                                     <input type="radio" name="radioMealType" value="Dessert"><span>Dessert</span>
                                 </label>
@@ -166,17 +165,17 @@
                 <table>
                     <tr>
                         <td>
-                            <div class="cuisine">
+                            <div class="selectbutton">
                                 <label>
                                     <input type="radio" name="radioPrice" value="$"><span>$</span>
                                 </label>
                             </div>
-                            <div class="cuisine">
+                            <div class="selectbutton">
                                 <label>
                                     <input type="radio" name="radioPrice" value="$$"><span>$$</span>
                                 </label>
                             </div>
-                            <div class="cuisine">
+                            <div class="selectbutton">
                                 <label>
                                     <input type="radio" name="radioPrice" value="$$$"><span>$$$</span>
                                 </label>
@@ -187,7 +186,7 @@
             </div>
             <div>
                 <div class="container">
-                    <input type="submit" id="btn_submitcuisine" class="flat_button" value="Submit">
+                    <input type="submit" id="btn_submit" class="flat_button" value="Submit">
                 </div>
             </div>
         </form>
