@@ -15,8 +15,7 @@ function formLoad() {
     //document.getElementById("meal").innerText = localStorage.getItem("_selectedMealType");
     //document.getElementById("price").innerText = localStorage.getItem("_selectedPriceRange");
 
-    /* Read datafile online */
-    /*        
+    /* Read datafile online */   
     axios.get(_dataFile)
         .then(function (response) {
             // handle success
@@ -30,7 +29,6 @@ function formLoad() {
            // always executed
            console.log('parse');
        });
-    */
 }
 
 function upload() {
