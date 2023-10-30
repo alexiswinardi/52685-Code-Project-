@@ -16,10 +16,11 @@ function formLoad() {
     //document.getElementById("price").innerText = localStorage.getItem("_selectedPriceRange");
 
     /* Read datafile online */   
-    axios.get(_dataFile)
+    axios.get(_dataFile, {responseType: 'binary'})
         .then(function (response) {
             // handle success
            console.log(response);
+            excelToJSON(response.data);
        })
        .catch(function (error) {
            // handle error
@@ -27,7 +28,6 @@ function formLoad() {
        })
        .finally(function () {
            // always executed
-           console.log('parse');
        });
 }
 
@@ -70,7 +70,7 @@ function upload() {
         __rowNum__: 2
 */
 
-function excelToJSONToObject(file) {
+function excelToJSON(file) {
 
     try {
         var reader = new FileReader();
