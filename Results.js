@@ -3,7 +3,7 @@ var _location = 'Chatswood';
 var _cuisines = 'Japanese, Korean';
 var _meal = 'Dinner';
 var _price = '$$';
-var _dataFile = 'https://github.com/alexiswinardi/52685-Code-Project-/blob/c6f4020e1b4c0d633476fca70a5856710c2cee52/%5B52685%5D%20Database.xlsx';
+var _dataFile = '/52685-Code-Project-/%5B52685%5D%20Database.xlsx';
 var _json_restaurants;
 
 function formLoad() {
