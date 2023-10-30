@@ -16,7 +16,7 @@ function formLoad() {
     //document.getElementById("price").innerText = localStorage.getItem("_selectedPriceRange");
 
     /* Read datafile online */   
-    axios.get(_dataFile, {responseType: 'binary'})
+    axios.get(_dataFile, {responseType: 'blob'})
         .then(function (response) {
             // handle success
            console.log(response);
