@@ -1,3 +1,4 @@
+/* Global variables */
 var _location = 'Chatswood';
 var _cuisines = 'Japanese, Korean';
 var _meal = 'Dinner';
