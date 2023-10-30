@@ -6,7 +6,7 @@ var _selectedMealType = null;
 var _selectedPriceRange = null;
 
 /*
-    Executed when GetStarted.html is loaded
+    Executed when index.html is loaded
 */
 function formLoad() {
 
