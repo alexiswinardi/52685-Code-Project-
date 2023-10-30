@@ -3,7 +3,7 @@ var _location = 'Chatswood';
 var _cuisines = 'Japanese, Korean';
 var _meal = 'Dinner';
 var _price = '$$';
-var _dataFile = '/%5B52685%5D%20Database.xlsx';
+var _dataFile = '[52685] Database.xlsx';
 var _json_restaurants;
 
 function formLoad() {
