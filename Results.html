@@ -5,10 +5,18 @@
     <title>foodle!</title>
     <link rel="stylesheet" href="mystyle.css">
     <script src="_scripts\Results.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.min.js"></script>
+    <!--<script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>-->
 </head>
 <body class="foodle_body" onload="formLoad()">
+
+    <input type="file" id="file_upload" />
+    <button onclick="upload()">Upload</button>
+
     <p id="location"></p>
     <p id="cuisines"></p>
     <p id="meal"></p>
     <p id="price"></p>
+
+    <table id="display_excel_data" border="1"></table>
 </body>
