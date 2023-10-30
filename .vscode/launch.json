@@ -7,8 +7,8 @@
         {
             "type": "msedge",
             "request": "launch",
-            "name": "Open GetStarted.html",
-            "file": "d:\\PROJECT A2\\52685-Code-Project-\\GetStarted.html"
+            "name": "Open index.html",
+            "file": "https://alexiswinardi.github.io/52685-Code-Project-/index.html"
         }
     ]
 }

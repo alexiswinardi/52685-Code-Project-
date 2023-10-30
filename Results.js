@@ -3,7 +3,7 @@ var _location = 'Chatswood';
 var _cuisines = 'Japanese, Korean';
 var _meal = 'Dinner';
 var _price = '$$';
-var _dataFile = 'https://github.com/alexiswinardi/52685-Code-Project-/blob/bd4c78e64eb9c95b7952f90d0410d17b68e57d80/%5B52685%5D%20Database.xlsx';
+var _dataFile = '/%5B52685%5D%20Database.xlsx';
 var _json_restaurants;
 
 function formLoad() {
@@ -15,19 +15,19 @@ function formLoad() {
     //document.getElementById("meal").innerText = localStorage.getItem("_selectedMealType");
     //document.getElementById("price").innerText = localStorage.getItem("_selectedPriceRange");
 
-    //axios.get(_dataFile)
-    //    .then(function (response) {
-    //        // handle success
-    //        console.log(response);
-    //    })
-    //    .catch(function (error) {
-    //        // handle error
-    //        console.log(error);
-    //    })
-    //    .finally(function () {
-    //        // always executed
-    //        console.log('parse');
-    //    });
+    axios.get(_dataFile)
+        .then(function (response) {
+            // handle success
+           console.log(response);
+       })
+       .catch(function (error) {
+           // handle error
+           console.log(error);
+       })
+       .finally(function () {
+           // always executed
+           console.log('parse');
+       });
 }
 
 function upload() {
