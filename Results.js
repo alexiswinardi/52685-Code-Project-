@@ -15,6 +15,8 @@ function formLoad() {
     //document.getElementById("meal").innerText = localStorage.getItem("_selectedMealType");
     //document.getElementById("price").innerText = localStorage.getItem("_selectedPriceRange");
 
+    /* Read datafile online */
+    /*        
     axios.get(_dataFile)
         .then(function (response) {
             // handle success
@@ -28,6 +30,7 @@ function formLoad() {
            // always executed
            console.log('parse');
        });
+    */
 }
 
 function upload() {
@@ -40,7 +43,7 @@ function upload() {
     var extension = filename.substring(filename.lastIndexOf(".")).toUpperCase();
     if (extension == '.XLS' || extension == '.XLSX') {
         //Here calling another method to read excel file into json
-        excelToJSON(files[0]);
+        excelToJSONToObject(files[0]);
     } else {
         alert("Please select a valid excel file.");
     }
@@ -69,7 +72,7 @@ function upload() {
         __rowNum__: 2
 */
 
-function excelToJSON(file) {
+function excelToJSONToObject(file) {
 
     try {
         var reader = new FileReader();
@@ -91,6 +94,7 @@ function excelToJSON(file) {
         console.error(e);
     }
 }
+
 
 
 

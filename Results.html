@@ -6,10 +6,11 @@
     <link rel="stylesheet" href="web.css">
     <script src="Results.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.min.js"></script>
-    <!--<script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>-->
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
 </head>
 <body class="foodle_body" onload="formLoad()">
 
+    <!-- To debug with file upload functionality while running locally -->
     <input type="file" id="file_upload" />
     <button onclick="upload()">Upload</button>
 
@@ -18,5 +19,4 @@
     <p id="meal"></p>
     <p id="price"></p>
 
-    <table id="display_excel_data" border="1"></table>
 </body>
