@@ -111,7 +111,7 @@ function validateCuisineSelection() {
         }
         else
         {
-            selected += ", " + _selectedCuisine[i];
+            selected += "," + _selectedCuisine[i];
         }
 
     }

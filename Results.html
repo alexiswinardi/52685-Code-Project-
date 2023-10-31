@@ -7,16 +7,19 @@
     <script src="Results.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.min.js"></script>
     <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <script type="text/JavaScript" src="https://cdn.jsdelivr.net/npm/lodash@4.17.20/lodash.min.js"></script>
 </head>
 <body class="foodle_body" onload="formLoad()">
 
     <!-- To debug with file upload functionality while running locally -->
-    <input type="file" id="file_upload" />
-    <button onclick="upload()">Upload</button>
+    <!--<input type="file" id="file_upload" />
+    <button onclick="upload()">Upload</button>-->
 
     <p id="location"></p>
     <p id="cuisines"></p>
     <p id="meal"></p>
     <p id="price"></p>
+
+    <table id="result_table" border="1"></table>
 
 </body>
