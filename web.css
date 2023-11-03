@@ -1,7 +1,35 @@
+img{
+    width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    margin: auto;
+}
+
+.resulttable {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+    .resulttable tr {
+        border-bottom: thin solid #dddddd;
+        margin: auto auto auto auto;
+    }
+
+
 .container {
     width: 250px;
     height: 38px;
-    margin: 100px auto;
+    margin: 50px auto 0px 1000px;
+}
+
+.table_container {
+    width: 640px;
+    height: 480px;
+    margin: 100px 50px;
 }
 
 div label input {
@@ -79,6 +107,15 @@ div label input {
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+}
+
+.result_phonenumber {
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    color: #333333;
+    font-weight: normal;
+    text-align: right;
+    margin-right: auto;
 }
 
 .center {

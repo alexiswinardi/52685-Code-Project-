@@ -17,19 +17,19 @@ function formLoad() {
     _price = localStorage.getItem("_selectedPriceRange");
 
     /* Read datafile online*/
-    axios.get(_dataFile, {responseType: 'blob'})
-        .then(function (response) {
-            // handle success
-           console.log(response);
-            excelToJSON(response.data);
-       })
-       .catch(function (error) {
-           // handle error
-           console.log(error);
-       })
-       .finally(function () {
-           // always executed
-       });
+    //axios.get(_dataFile, {responseType: 'blob'})
+    //    .then(function (response) {
+    //        // handle success
+    //       console.log(response);
+    //        parseDataAndSearch(response.data);
+    //   })
+    //   .catch(function (error) {
+    //       // handle error
+    //       console.log(error);
+    //   })
+    //   .finally(function () {
+    //       // always executed
+    //   });
 }
 
 function upload() {
@@ -44,7 +44,7 @@ function upload() {
     if (extension == '.XLS' || extension == '.XLSX') {
 
         //Here calling another method to read excel file into json
-        excelToJSON(files[0]);
+        parseDataAndSearch(files[0]);
 
     } else {
         alert("Please select a valid excel file.");
@@ -74,7 +74,7 @@ function upload() {
         __rowNum__: 2
 */
 
-function excelToJSON(file) {
+function parseDataAndSearch(file) {
 
     try {
         var reader = new FileReader();
@@ -93,7 +93,7 @@ function excelToJSON(file) {
             var finalList = getMatchingRestaurants();
             if (finalList != null && finalList.length > 0) {
 
-                var htmlData = '<tr><th>Name</th><th>Address</th><th>Phone</th><th>Website</th></tr>';
+                var htmlData = null;
 
                 for (var i = 0; i < finalList.length; i++) {
 
@@ -109,21 +109,56 @@ function excelToJSON(file) {
                         website = row['Website'];
                     }
 
-                    htmlData +=
-                        '<tr>' +
-                        '<td>' + row['Name'] + '</td>' +
-                        '<td>' + row['Address'] + '</td>' +
-                        '<td>' + phone + '</td>' +
-                        '<td>' + '<a href=\'' + website + '\'>' + website + '</a></td>' +
-                        '</tr>';
+                    if (htmlData == null) {
+
+                        htmlData =
+                            '<div class="table_container">' +
+                            '<table class="resulttable">' +
+                            '<tr>' +
+                            '<td>' +
+                            '<a class="foodle_h2" style="text-align: left;" href="' + website + '">' + row['Name'] + '</a>' +
+                            '</td>' +
+                            '<td><label class="result_phonenumber">' + phone + '</label></td>' + 
+                            '</tr>' +
+                            '<tr>' +
+                            '<td colspan="2">' +
+                            '<div style="height: 275px">' +
+                            '<img alt="" src="' + row['Image'] + '"/>' +
+                            '</div>' +
+                            '</td>' +
+                            '</tr>' +
+                            '</table>' +
+                            '</div>' +
+                            '<br />';
+                    }
+                    else {
+
+                        htmlData +=
+                            '<div class="table_container">' +
+                            '<table class="resulttable">' +
+                            '<tr>' +
+                            '<td>' +
+                            '<a class="foodle_h2" style="text-align: left;" href="' + website + '">' + row['Name'] + '</a>' +
+                            '</td>' +
+                            '<td><label class="result_phonenumber">' + phone + '</label></td>' +
+                            '</tr>' +
+                            '<tr>' +
+                            '<td colspan="2">' +
+                            '<div style="height: 275px">' +
+                            '<img alt="" src="' + row['Image'] + '"/>' +
+                            '</div>' +
+                            '</td>' +
+                            '</tr>' +
+                            '</table>' +
+                            '</div>' +
+                            '<br />';
+                    }
                 }
 
-                var table = document.getElementById('result_table');
-                table.innerHTML = htmlData;
+                var divResult = document.getElementById('divResultTable');
+                divResult.innerHTML = htmlData;
 
             }
-            //displaying the json result into HTML table
-            //displayJsonToHtmlTable(jsonData);
         }
     } catch (e) {
         console.error(e);
@@ -136,11 +171,11 @@ function getMatchingRestaurants(searchSuburb, searchCuisine, searchPriceRange) {
 
     var restArray = JSON.parse(JSON.stringify(_json_restaurants));
 
-    // Suburb
+    // Suburb, meal and price range
     for (var i = 0; i < restArray.length; i++) {
 
         var item = restArray[i];
-        if (item['SuburbRange'].indexOf(_location) >= 0 && item['Price'] == _price) {
+        if (item['SuburbRange'].indexOf(_location) >= 0 && item['Meal'].indexOf(_meal) >= 0 && item['Price'] == _price) {
 
             _matchedBySuburb.push(item);
         }
