@@ -6,6 +6,7 @@ img{
 }
 
 .card {
+    border-radius: 10px;
     background-image: linear-gradient(to left, rgb(253,199,195) , #fff0c3);
     margin-top: 50px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
