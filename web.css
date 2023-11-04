@@ -1,24 +1,41 @@
 img{
     width: 100%;
     max-height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     margin: auto;
 }
 
-.resulttable {
-    border-collapse: collapse;
-    margin: 25px 0;
-    font-size: 0.9em;
-    font-family: sans-serif;
-    min-width: 400px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+.card {
+    background-image: linear-gradient(to left, rgb(253,199,195) , #fff0c3);
+    margin-top: 50px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 100%;
+}
+      
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+      
+.card_container {
+padding: 2px 16px;
 }
 
-    .resulttable tr {
-        border-bottom: thin solid #dddddd;
-        margin: auto auto auto auto;
-    }
+.card_header {
+    font-family: Arial, sans-serif;
+    font-size: 30px;
+    color: #333333;
+    font-weight: bold;
+    text-align: left;
+}
 
+.card_details {
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    color: #333333;
+    font-weight: normal;
+    text-align: left;
+}
 
 .container {
     width: 250px;
@@ -26,18 +43,13 @@ img{
     margin: 50px auto 0px 1000px;
 }
 
-.table_container {
-    width: 640px;
-    height: 480px;
-    margin: 100px 50px;
-}
 
 div label input {
     margin-right: 100px;
 }
 
 .foodle_body {
-  background-color: #b1b396;
+    background-image: linear-gradient(to right, rgb(253,199,195) , #fff0c3);
 }
 
 .foodle_hr {
@@ -109,15 +121,6 @@ div label input {
     transform: translate(-50%, -50%);
 }
 
-.result_phonenumber {
-    font-family: Arial, sans-serif;
-    font-size: 20px;
-    color: #333333;
-    font-weight: normal;
-    text-align: right;
-    margin-right: auto;
-}
-
 .center {
     display: flex;
     justify-content: center;
@@ -138,7 +141,7 @@ div label input {
 .selectbutton {
     margin: 4px;
     border-radius: 10px;
-    border: 1px solid #fff;
+    border: 1px solid;
     overflow: hidden;
     float: left;
     font-family: Arial, sans-serif;
@@ -160,12 +163,12 @@ div label input {
 .selectbutton label input {
     position: absolute;
     display: none;
-    color: #fff !important;
+    color: white !important;
 }
 
 /* selects all of the text within the input element and changes the color of the text */
 .selectbutton label input + span {
-    color: #fff;
+    color: black;
 }
 
 /* This will declare how a selected input will look giving generic properties */

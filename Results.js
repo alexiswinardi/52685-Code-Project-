@@ -1,8 +1,8 @@
 /* Global variables */
-var _location = 'City';
-var _cuisines = 'Japanese,Korean';
-var _meal = 'Dinner';
-var _price = '$$';
+var _location = null;
+var _cuisines = null;
+var _meal = null;
+var _price =  null;
 var _dataFile = '/52685-Code-Project-/Database.xlsx';
 var _json_restaurants;
 var _matchedBySuburb = [];
@@ -17,21 +17,24 @@ function formLoad() {
     _price = localStorage.getItem("_selectedPriceRange");
 
     /* Read datafile online*/
-    //axios.get(_dataFile, {responseType: 'blob'})
-    //    .then(function (response) {
-    //        // handle success
-    //       console.log(response);
-    //        parseDataAndSearch(response.data);
-    //   })
-    //   .catch(function (error) {
-    //       // handle error
-    //       console.log(error);
-    //   })
-    //   .finally(function () {
-    //       // always executed
-    //   });
+    axios.get(_dataFile, {responseType: 'blob'})
+       .then(function (response) {
+           // handle success
+          console.log(response);
+           parseDataAndSearch(response.data);
+      })
+      .catch(function (error) {
+          // handle error
+          console.log(error);
+      })
+      .finally(function () {
+          // always executed
+      });
 }
 
+/*
+    Handles locally uploaded data file - only used for testing
+*/
 function upload() {
     var files = document.getElementById('file_upload').files;
     if (files.length == 0) {
@@ -52,31 +55,13 @@ function upload() {
 }
 
 /*
-    Sample output:
-    
-    0: 
-        Address: "125 Falcon St, Crows Nest NSW 2065"
-        Cuisine: "Japanese"
-        Id: 1
-        Name: "Ryo's Noodles"
-        Phone number: "(02) 9955 0225"
-        Postcode: 2065
-        Website link: "https://www.facebook.com/ryosnoodles/"
-        __rowNum__: 1
-    1:  
-        Address: "346B Illawarra Rd, Marrickville NSW 2204"
-        Cuisine: "Vietnamese"
-        Id: 2
-        Name: "Pho Ha Noi Quan Marrickville"
-        Phone number: "(02) 8018 4928"
-        Postcode: 2204
-        Website link: "https://www.quandoo.com.au/place/pho-ha-noi-quan-32082?aid=63"
-        __rowNum__: 2
+    The main method to load the data source, translate it into JSON object, and search.
+    The results (exact or partial match) will then be displayed on the page.
 */
-
 function parseDataAndSearch(file) {
 
     try {
+
         var reader = new FileReader();
         reader.readAsBinaryString(file);
         reader.onload = function (e) {
@@ -112,50 +97,43 @@ function parseDataAndSearch(file) {
                     if (htmlData == null) {
 
                         htmlData =
-                            '<div class="table_container">' +
-                            '<table class="resulttable">' +
-                            '<tr>' +
-                            '<td>' +
-                            '<a class="foodle_h2" style="text-align: left;" href="' + website + '">' + row['Name'] + '</a>' +
-                            '</td>' +
-                            '<td><label class="result_phonenumber">' + phone + '</label></td>' + 
-                            '</tr>' +
-                            '<tr>' +
-                            '<td colspan="2">' +
-                            '<div style="height: 275px">' +
-                            '<img alt="" src="' + row['Image'] + '"/>' +
-                            '</div>' +
-                            '</td>' +
-                            '</tr>' +
-                            '</table>' +
-                            '</div>' +
-                            '<br />';
+                        '<div class="card">' +
+                        '<div class="cardcontainer">' +
+                        '<p>&nbsp;</p>' +
+                        '<a class="card_header" href="' + website + '">' + row['Name'] + '</a>' +
+                        '<p class="card_details">' + row['Cuisine'] + '</p>' + 
+                        '</div>' + 
+                        '<img src="' + row['Image'] + '" alt="">' +
+                        '<div class="cardcontainer">' +
+                        '<p class="card_details">' + row['Address'] + '</p>' +
+                        '<p class="card_details">' + phone + '</p>' +
+                        '<p>&nbsp;</p>' +
+                        '</div>' +
+                        '</div>' +
+                        '<br/>';
+                
                     }
                     else {
 
                         htmlData +=
-                            '<div class="table_container">' +
-                            '<table class="resulttable">' +
-                            '<tr>' +
-                            '<td>' +
-                            '<a class="foodle_h2" style="text-align: left;" href="' + website + '">' + row['Name'] + '</a>' +
-                            '</td>' +
-                            '<td><label class="result_phonenumber">' + phone + '</label></td>' +
-                            '</tr>' +
-                            '<tr>' +
-                            '<td colspan="2">' +
-                            '<div style="height: 275px">' +
-                            '<img alt="" src="' + row['Image'] + '"/>' +
-                            '</div>' +
-                            '</td>' +
-                            '</tr>' +
-                            '</table>' +
-                            '</div>' +
-                            '<br />';
+                        '<div class="card">' +
+                        '<div class="cardcontainer">' +
+                        '<p>&nbsp;</p>' +
+                        '<a class="card_header" href="' + website + '">' + row['Name'] + '</a>' +
+                        '<p class="card_details">' + row['Cuisine'] + '</p>' + 
+                        '</div>' + 
+                        '<img src="' + row['Image'] + '" alt="">' +
+                        '<div class="cardcontainer">' +
+                        '<p class="card_details">' + row['Address'] + '</p>' +
+                        '<p class="card_details">' + phone + '</p>' +
+                        '<p>&nbsp;</p>' +
+                        '</div>' +
+                        '</div>' +
+                        '<br/>';
                     }
                 }
 
-                var divResult = document.getElementById('divResultTable');
+                var divResult = document.getElementById('resultcards');
                 divResult.innerHTML = htmlData;
 
             }
@@ -189,8 +167,16 @@ function getMatchingRestaurants(searchSuburb, searchCuisine, searchPriceRange) {
         ])
     );
 
+    // Couldn't find exact matches
     if (result == null || result.length <= 0) {
 
+        var divNoMatch = document.getElementById('nomatch');
+        var htmlData =
+            '<br />' +
+            '<p class="card_details">Ooops! It doesnt look like we found a match for your search. Here are the list of alternative foodle! places you can visit instead.</p>';
+        divNoMatch.innerHTML = htmlData;
+
+        // Returning a result of places matched by Suburb, Meal Type, and Price Range - ignoring Cuisine
         result = _matchedBySuburb;
     }
 
