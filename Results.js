@@ -173,7 +173,7 @@ function getMatchingRestaurants(searchSuburb, searchCuisine, searchPriceRange) {
         var divNoMatch = document.getElementById('nomatch');
         var htmlData =
             '<br />' +
-            '<p class="card_details">Ooops! It doesnt look like we found a match for your search. Here are the list of alternative foodle! places you can visit instead.</p>';
+            '<p class="card_details">Ooops! It doesnt look like we found a match for your search. Here is a list of alternative foodle! places you can visit instead.</p>';
         divNoMatch.innerHTML = htmlData;
 
         // Returning a result of places matched by Suburb, Meal Type, and Price Range - ignoring Cuisine
